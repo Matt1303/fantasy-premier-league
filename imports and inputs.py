@@ -41,3 +41,18 @@ my_bench_players = ['Danny Ward',
                     'Neco Williams',
                     'Andreas Hoelgebaum Pereira',
                     'Sam Greenwood']
+
+# players to exclude from considering transfer out
+no_transfer = [] #['Erling Haaland', 'Mohamed Salah', 'Robert Sánchez'] #['Erling Haaland']
+
+default_min_gw = 7
+default_max_gw = 11
+
+default_starting_budget = 82
+default_bench_budget = 18
+
+default_num_transfers = 2
+
+default_minimum_chance_of_playing = 50
+
+default_form_window = 5
