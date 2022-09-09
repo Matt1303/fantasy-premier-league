@@ -28,8 +28,5 @@ def players_this_season(current_season = '2022-23'):
                                      'element_type': 'position'},
                                      axis=1,
                                      inplace=True)
-    
-    # remove Roberto Firmino as Nunez is back
-    players_this_season_final = players_this_season_final[~players_this_season_final['name'].str.contains('Firmino')]
 
     return players_this_season_final[['player_id', 'name', 'team', 'position', 'now_cost', 'chance_of_playing_next_round', 'selected_by_percent']]
