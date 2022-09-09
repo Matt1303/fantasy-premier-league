@@ -17,13 +17,7 @@ def find_optimum_formation(player_data, budget, current_team_count, players_to_e
             ict=predicted_ict
             optimum_team_by_gw = optimum_team[0] #pd.concat([optimum_team_by_gw, optimum_team[0]])
         # update the ict and optimised team if found a higher scoring formation
-        if predicted_ict > ict:
-            ict=predicted_ict
-            # remove the previous highest scoring formation from the optimum_team_by_gw dataframe for the gameweek
-#             optimum_team_by_gw = optimum_team_by_gw[optimum_team_by_gw['GW']!=gw]
-#             # replace with the formation which produces a higher predicted ICT
-#             optimum_team_by_gw = pd.concat([optimum_team_by_gw, optimum_team[0]])
-            
+        if predicted_ict > ict:            
             optimum_team_by_gw = optimum_team[0]
         
     print('-------------------')
