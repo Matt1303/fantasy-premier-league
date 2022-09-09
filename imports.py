@@ -24,3 +24,20 @@ pd.set_option('display.width', None)
 pd.set_option('display.max_colwidth', None)
 pd.set_option('mode.chained_assignment', None)
 pd.set_option('display.float_format', lambda x: '%.2f' % x)
+
+my_players = ['Robert Sánchez',
+            'Diogo Dalot Teixeira',
+            'Trent Alexander-Arnold',
+            'Kieran Trippier',
+            'Reece James',
+            'Mohamed Salah',
+            'Luis Díaz',
+            'Ilkay Gündogan',
+            'Gabriel Martinelli Silva',
+            'Erling Haaland',
+            'Gabriel Fernando de Jesus']
+
+my_bench_players = ['Danny Ward',
+                    'Neco Williams',
+                    'Andreas Hoelgebaum Pereira',
+                    'Sam Greenwood']
