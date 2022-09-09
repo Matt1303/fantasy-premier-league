@@ -25,6 +25,8 @@ pd.set_option('display.max_colwidth', None)
 pd.set_option('mode.chained_assignment', None)
 pd.set_option('display.float_format', lambda x: '%.2f' % x)
 
+folder_location = r'C:\Users\msmith'
+
 my_players = ['Robert Sánchez',
             'Diogo Dalot Teixeira',
             'Trent Alexander-Arnold',
