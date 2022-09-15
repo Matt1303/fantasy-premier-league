@@ -3,13 +3,16 @@ def prepare_fixtures(current_season = '2022-23'):
           o pass in current_season in the form YYYY-YY e.g. 2022-23'''
     
     fixtures = pd.read_csv(folder_location+fr'\Fantasy-Premier-League\data\{current_season}\fixtures.csv')
+    
+    #fixtures.dropna(how='any', inplace=True) # drop the fixtures which haven't been scheduled yet
+    
     fixtures.sort_values('kickoff_time', ascending=True, inplace=True)
     
     # add gameweeks as column to fixtures
-    gw = pd.Series(data=range(1,39))
-    gw_final = gw.repeat(10)
-    gw_final.reset_index(drop=True, inplace=True)
-    fixtures['GW'] = gw_final
+#     gw = pd.Series(data=range(1,39))
+#     gw_final = gw.repeat(10)
+#     gw_final.reset_index(drop=True, inplace=True)
+    fixtures['GW'] = fixtures['event']
     
     teams_by_season = pd.DataFrame(columns=['season', 'id', 'name', 'strength_overall_home', 'strength_overall_away'])
 
@@ -46,8 +49,8 @@ def prepare_fixtures(current_season = '2022-23'):
     fixtures_final['home_team_strength_diff'] = fixtures_final['home_team_strength']-fixtures_final['away_team_strength']
     fixtures_final['away_team_strength_diff'] = fixtures_final['away_team_strength']-fixtures_final['home_team_strength']
 
-    fixtures_final.drop(['id_y', 'id'], axis=1, inplace=True)
-
+    fixtures_final.drop(['id_y', 'id'], axis=1, inplace=True)  
+    
     return fixtures_final[['fixture',
                            'kickoff_time',
                            'team_h', 
@@ -56,4 +59,4 @@ def prepare_fixtures(current_season = '2022-23'):
                            'team_a', 
                            'away_team', 
                            'away_team_strength_diff',
-                           'GW']].sort_values('fixture', ascending=True)
+                           'GW']].sort_values('kickoff_time', ascending=True)#.head(100)

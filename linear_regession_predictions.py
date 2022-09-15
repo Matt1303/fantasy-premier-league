@@ -5,8 +5,9 @@ def linear_regression_predictions(min_gameweek=None, max_gameweek=None):
 
     inputs = fixtures_and_form()
 
-    model_input = inputs[['team_strength_diff', 'rolling_avg_ict']] #'rolling_avg_ict'  #latest_form
-    model_input.dropna(inplace=True)
+    model_input = inputs[['team_strength_diff', 'rolling_avg_ict', 'GW']]
+    model_input.dropna(inplace=True)   # include GW then drop where GW is null (not scheduled yet)
+    model_input = model_input[['team_strength_diff', 'rolling_avg_ict']]
   
     # need to drop null ICT data from fixtures_and_form as well in order to preserve order of dataframe when concatenating with the predicted points
     inputs.dropna(inplace=True)
